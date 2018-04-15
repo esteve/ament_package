@@ -1,5 +1,5 @@
 :: generated from ament_package/template/prefix_level/local_setup.bat.in
-@echo off
+@echo on
 
 :: get all packages in topological order
 call:ament_get_ordered_packages _ordered_packages "%~dp0"
