@@ -90,6 +90,11 @@ def configure_file(template_file, environment):
     :raises: KeyError for placeholders in the template which are not
       in the environment
     """
+    # Escape parenthesis with carets
+    if IS_WINDOWS:
+        environment = {
+            key:re.sub(r'(\(|\))', r'^\1', value) for (key, value) in environment.items()
+        }
     with open(template_file, 'r') as f:
         template = f.read()
         return configure_string(template, environment)
