@@ -25,8 +25,8 @@ goto:eof
   :: use the Python executable known at configure time
   set "ament_python_executable=@PYTHON_EXECUTABLE@"
   :: allow overriding it with a custom location
-  if "!AMENT_PYTHON_EXECUTABLE!" NEQ "" (
-    set "ament_python_executable=!AMENT_PYTHON_EXECUTABLE!"
+  if "%AMENT_PYTHON_EXECUTABLE%" NEQ "" (
+    set "ament_python_executable=%AMENT_PYTHON_EXECUTABLE%"
   )
 
   set "ordered_packages="
