@@ -91,7 +91,7 @@ def configure_file(template_file, environment):
       in the environment
     """
     print('CONFIGURE_FILE: {} DATA: {}'.format(template_file, environment))
-    escaped_environment = {key:value for (key, re.sub(r'(\(|\))', r'^\1', value)) in environment.items()}
+    escaped_environment = {key:re.sub(r'(\(|\))', r'^\1', value) for (key, value) in environment.items()}
     print('CONFIGURE_FILE: {} ESCAPED DATA: {}'.format(template_file, escaped_environment))
     with open(template_file, 'r') as f:
         template = f.read()
