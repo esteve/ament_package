@@ -2,6 +2,12 @@
 Changelog for package ament_package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.17.2 (2025-04-17)
+-------------------
+* Simplify removing leading and trailing separators (`#152 <https://github.com/ament/ament_package/issues/152>`_)
+* Remove CODEOWNERS and mirror-rolling-to-master. (`#149 <https://github.com/ament/ament_package/issues/149>`_)
+* Contributors: Chris Lalancette, Rob Woolley
+
 0.17.1 (2024-06-17)
 -------------------
 * Always consider .dsv files, even when no shell specific script exists (`#147 <https://github.com/ament/ament_package/issues/147>`_)
