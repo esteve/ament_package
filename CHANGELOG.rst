@@ -2,6 +2,9 @@
 Changelog for package ament_package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.18.0 (2025-04-24)
+-------------------
+
 0.17.2 (2025-04-17)
 -------------------
 * Simplify removing leading and trailing separators (`#152 <https://github.com/ament/ament_package/issues/152>`_)
