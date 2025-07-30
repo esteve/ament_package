@@ -2,8 +2,8 @@
 Changelog for package ament_package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.18.1 (2025-07-30)
+-------------------
 * fix setuptools deprecations (`#156 <https://github.com/ament/ament_package/issues/156>`_)
 * Contributors: mosfet80
 
