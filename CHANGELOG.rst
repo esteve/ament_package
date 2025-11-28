@@ -2,6 +2,11 @@
 Changelog for package ament_package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.18.2 (2025-11-28)
+-------------------
+* Remove unneeded deps (`#161 <https://github.com/ament/ament_package/issues/161>`_)
+* Contributors: Michael Carlstrom
+
 0.18.1 (2025-07-30)
 -------------------
 * fix setuptools deprecations (`#156 <https://github.com/ament/ament_package/issues/156>`_)
