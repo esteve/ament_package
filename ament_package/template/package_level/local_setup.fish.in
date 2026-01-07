@@ -1,0 +1,45 @@
+# generated from ament_package/template/package_level/local_setup.fish.in
+
+# source local_setup.fish from same directory as this file
+set -l _this_path (builtin cd (dirname (status filename)) && pwd)
+# provide AMENT_CURRENT_PREFIX to shell script
+set -gx AMENT_CURRENT_PREFIX (builtin cd (dirname (status filename))/../.. && pwd)
+# store AMENT_CURRENT_PREFIX to restore it before each environment hook
+set -l _package_local_setup_AMENT_CURRENT_PREFIX $AMENT_CURRENT_PREFIX
+
+# trace output
+if test -n "$AMENT_TRACE_SETUP_FILES"
+  echo "# source \"$_this_path/local_setup.fish\""
+end
+source "$_this_path/local_setup.fish"
+
+# unset AMENT_ENVIRONMENT_HOOKS
+# if not appending to them for return
+if test -z "$AMENT_RETURN_ENVIRONMENT_HOOKS"
+  set -e AMENT_ENVIRONMENT_HOOKS
+end
+
+# restore AMENT_CURRENT_PREFIX before evaluating the environment hooks
+set -gx AMENT_CURRENT_PREFIX $_package_local_setup_AMENT_CURRENT_PREFIX
+# list all environment hooks of this package
+@ENVIRONMENT_HOOKS@
+# source all shell-specific environment hooks of this package
+# if not returning them
+if test -z "$AMENT_RETURN_ENVIRONMENT_HOOKS"
+  for _hook in (string split ":" $AMENT_ENVIRONMENT_HOOKS)
+    # restore AMENT_CURRENT_PREFIX for each environment hook
+    set -gx AMENT_CURRENT_PREFIX $_package_local_setup_AMENT_CURRENT_PREFIX
+    # source environment hook file
+    if test -f "$_hook"
+      # trace output
+      if test -n "$AMENT_TRACE_SETUP_FILES"
+        echo "# source \"$_hook\""
+      end
+      source "$_hook"
+    end
+  end
+  set -e AMENT_ENVIRONMENT_HOOKS
+end
+
+set -e _package_local_setup_AMENT_CURRENT_PREFIX
+set -e AMENT_CURRENT_PREFIX
